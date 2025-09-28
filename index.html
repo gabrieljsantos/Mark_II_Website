@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mark II — Experimento do Efeito Fotoelétrico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER FIXO -->
+  <header id="header">
+    <div class="header-container">
+      <div class="logo">
+        <h1>Mark II</h1>
+        <span>Efeito Fotoelétrico</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#aparato">Aparato</a></li>
+          <li><a href="#componentes">Componentes</a></li>
+          <li><a href="#graficos">Gráficos</a></li>
+          <li><a href="#leds">LEDs</a></li>
+          <li><a href="#modelos3d">Modelos 3D</a></li>
+          <li><a href="#agradecimentos">Créditos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SEÇÃO HERO / IMPACTO -->
+  <section id="hero" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="title-main">Fotoelétrico</span>
+            <span class="title-version">Mark II</span>
+          </h1>
+          <h2 class="hero-subtitle">Experimento do Efeito Fotoelétrico</h2>
+          <p class="hero-description">
+            Explore a física quântica através da interação entre luz e matéria. 
+            Descubra como diferentes comprimentos de onda afetam a emissão de elétrons.
+          </p>
+          <div class="hero-buttons">
+            <a href="#aparato" class="btn btn-primary">Explorar Experimento</a>
+            <a href="#leds" class="btn btn-secondary">Ver Comprimentos de Onda</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-container">
+            <img src="img/hero_logo.png" alt="Aparato Experimental" class="hero-image">
+            <div class="hero-particles"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO APARATO -->
+  <section id="aparato" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Aparato Experimental</h2>
+        <p>Vista geral do equipamento utilizado no experimento</p>
+      </div>
+      <div class="aparato-grid">
+        <div class="aparato-item">
+          <img src="img/APARATO/diagonal 1.png" alt="Vista diagonal 1 do aparato" class="aparato-img">
+          <h3>Vista Frontal</h3>
+          <p>Configuração principal do experimento</p>
+        </div>
+        <div class="aparato-item">
+          <img src="aparato2.jpg" alt="Vista lateral do aparato" class="aparato-img">
+          <h3>Vista Lateral</h3>
+          <p>Perspectiva lateral do equipamento</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO COMPONENTES -->
+  <section id="componentes" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Componentes e Peças</h2>
+        <p>Detalhes dos componentes utilizados na montagem</p>
+      </div>
+      <div class="components-grid">
+        <div class="component-item">
+          <img src="componente1.jpg" alt="Componente 1" class="component-img">
+          <h4>Fotocátodo</h4>
+        </div>
+        <div class="component-item">
+          <img src="componente2.jpg" alt="Componente 2" class="component-img">
+          <h4>Ânodo Coletor</h4>
+        </div>
+        <div class="component-item">
+          <img src="componente3.jpg" alt="Componente 3" class="component-img">
+          <h4>Sistema de Vácuo</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO GRÁFICOS E EQUAÇÕES -->
+  <section id="graficos" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Gráficos e Equações</h2>
+        <p>Análise matemática e visual dos resultados</p>
+      </div>
+      <div class="graphs-container">
+        <div class="graph-item">
+          <img src="grafico1.jpg" alt="Gráfico corrente vs tensão" class="graph-img">
+          <div class="equation-box">
+            <h4>Equação de Einstein</h4>
+            <p class="equation">E<sub>k</sub> = h·f - φ</p>
+            <p class="equation-desc">
+              Onde E<sub>k</sub> é a energia cinética dos elétrons, 
+              h é a constante de Planck, f é a frequência da luz 
+              e φ é a função trabalho do material.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO LEDs E COMPRIMENTOS DE ONDA -->
+  <section id="leds" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>LEDs e Comprimentos de Onda</h2>
+        <p>Diferentes frequências de luz utilizadas no experimento</p>
+      </div>
+      <div class="leds-grid">
+        
+        <!-- LED 1 - Laranja -->
+        <div class="led-card" data-wavelength="580" data-color="#FFD700" data-name="Laranja">
+          <div class="led-visual">
+            <div class="led-circle" style="background: linear-gradient(45deg, #FFD700, #FFA500);"></div>
+            <div class="led-glow"></div>
+          </div>
+          <div class="led-info">
+            <h3>LED Laranja</h3>
+            <p class="wavelength">λ = 580 nm</p>
+            <p class="frequency">f = 5.17 × 10¹⁴ Hz</p>
+            <p class="energy">E = 2.14 eV</p>
+          </div>
+          <div class="led-image-container">
+            <img src="img/LEDs on/orange.png" alt="LED Laranja" class="led-image">
+          </div>
+        </div>
+
+        <!-- LED 2 - Azul -->
+        <div class="led-card" data-wavelength="450" data-color="#4169E1" data-name="Azul">
+          <div class="led-visual">
+            <div class="led-circle" style="background: linear-gradient(45deg, #4169E1, #0066CC);"></div>
+            <div class="led-glow"></div>
+          </div>
+          <div class="led-info">
+            <h3>LED Azul</h3>
+            <p class="wavelength">λ = 450 nm</p>
+            <p class="frequency">f = 6.67 × 10¹⁴ Hz</p>
+            <p class="energy">E = 2.76 eV</p>
+          </div>
+          <div class="led-image-container">
+            <img src="img/LEDs on/blue.png" alt="LED Azul" class="led-image">
+          </div>
+        </div>
+
+        <!-- LED 3 - Verde -->
+        <div class="led-card" data-wavelength="530" data-color="#32CD32" data-name="Verde">
+          <div class="led-visual">
+            <div class="led-circle" style="background: linear-gradient(45deg, #32CD32, #228B22);"></div>
+            <div class="led-glow"></div>
+          </div>
+          <div class="led-info">
+            <h3>LED Verde</h3>
+            <p class="wavelength">λ = 530 nm</p>
+            <p class="frequency">f = 5.66 × 10¹⁴ Hz</p>
+            <p class="energy">E = 2.34 eV</p>
+          </div>
+          <div class="led-image-container">
+            <img src="img/LEDs on/gleen.png" alt="LED Verde" class="led-image">
+          </div>
+        </div>
+
+        <!-- LED 4 - Vermelho -->
+        <div class="led-card" data-wavelength="625" data-color="#DC143C" data-name="Vermelho">
+          <div class="led-visual">
+            <div class="led-circle" style="background: linear-gradient(45deg, #DC143C, #B22222);"></div>
+            <div class="led-glow"></div>
+          </div>
+          <div class="led-info">
+            <h3>LED Vermelho</h3>
+            <p class="wavelength">λ = 625 nm</p>
+            <p class="frequency">f = 4.80 × 10¹⁴ Hz</p>
+            <p class="energy">E = 1.98 eV</p>
+          </div>
+          <div class="led-image-container">
+            <img src="img/LEDs on/red.png" alt="LED Vermelho" class="led-image">
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- Espectro Visual -->
+      <div class="spectrum-container">
+        <h3>Espectro Eletromagnético</h3>
+        <div class="spectrum-bar">
+          <div class="spectrum-gradient"></div>
+          <div class="spectrum-markers">
+            <span style="left: 20%;">625nm</span>
+            <span style="left: 40%;">580nm</span>
+            <span style="left: 60%;">530nm</span>
+            <span style="left: 80%;">450nm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO MODELOS 3D -->
+  <section id="modelos3d" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Modelos 3D do Projeto</h2>
+        <p>Visualização tridimensional dos componentes</p>
+      </div>
+      <div class="models-grid">
+        <div class="model-item">
+          <img src="modelo1.jpg" alt="Modelo 3D vista 1" class="model-img">
+          <h4>Vista Isométrica</h4>
+        </div>
+        <div class="model-item">
+          <img src="modelo2.jpg" alt="Modelo 3D vista 2" class="model-img">
+          <h4>Vista Explodida</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO AGRADECIMENTOS -->
+  <section id="agradecimentos" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Agradecimentos e Créditos</h2>
+      </div>
+      <div class="acknowledgments">
+        <p>
+          Agradeço a todos que contribuíram para o desenvolvimento e estudo deste projeto 
+          experimental sobre o efeito fotoelétrico. Este trabalho foi fundamental para 
+          a compreensão dos princípios da física quântica.
+        </p>
+        <div class="credits">
+          <div class="credit-item">
+            <h4>Desenvolvimento</h4>
+            <p>Gabriel J Santos</p>
+          </div>
+          <div class="credit-item">
+            <h4>Orientação Científica</h4>
+            <p>[Nome do Orientador]</p>
+          </div>
+          <div class="credit-item">
+            <h4>Instituição</h4>
+            <p>[Nome da Instituição]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Mark II - Efeito Fotoelétrico</h3>
+          <p>Projeto experimental de física quântica</p>
+        </div>
+        <div class="footer-links">
+          <a href="#hero">Início</a>
+          <a href="#aparato">Aparato</a>
+          <a href="#leds">LEDs</a>
+          <a href="#agradecimentos">Créditos</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Gabriel J Santos. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX OVERLAY -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-container">
+      <img id="lightbox-img" src="" alt="">
+      <button id="lightbox-close" class="lightbox-close">&times;</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
