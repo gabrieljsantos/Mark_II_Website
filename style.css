@@ -1237,3 +1237,161 @@ button:focus,
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-color);
 }
+
+/* ============================= */
+/* SEÇÃO PROBLEMAS E SOLUÇÕES */
+/* ============================= */
+.problems-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.problem-item {
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+  transition: all var(--transition-medium);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.problem-item.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.problem-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-large);
+}
+
+.problem-header {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-alt));
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.problem-icon {
+  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.problem-header h3 {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.problem-content {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.problem-description,
+.problem-causes,
+.problem-solutions {
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+}
+
+.problem-description {
+  border-left-color: var(--secondary-color);
+}
+
+.problem-causes {
+  border-left-color: #ff6b35;
+}
+
+.problem-solutions {
+  border-left-color: var(--accent-color);
+}
+
+.problem-description h4,
+.problem-causes h4,
+.problem-solutions h4 {
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.problem-description p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.problem-causes ul,
+.problem-solutions ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-secondary);
+}
+
+.problem-causes li,
+.problem-solutions li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.problem-causes li:last-child,
+.problem-solutions li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsividade para problemas */
+@media screen and (max-width: 768px) {
+  .problem-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .problem-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+  
+  .problem-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .problem-content {
+    padding: 20px 15px;
+    gap: 15px;
+  }
+  
+  .problem-description,
+  .problem-causes,
+  .problem-solutions {
+    padding: 15px;
+  }
+}
+
+/* Animação especial para os problemas */
+.problem-item:nth-child(even) {
+  animation-delay: 0.1s;
+}
+
+.problem-item:nth-child(odd) {
+  animation-delay: 0.2s;
+}

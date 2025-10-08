@@ -370,7 +370,8 @@ class PhotoelectricApp {
             .component-item,
             .led-card,
             .model-item,
-            .graph-item
+            .graph-item,
+            .problem-item
         `);
         
         elementsToAnimate.forEach(el => {

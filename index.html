@@ -22,12 +22,14 @@
           <li><a href="#componentes">Componentes</a></li>
           <li><a href="#graficos">Gráficos</a></li>
           <li><a href="#leds">LEDs</a></li>
+          <li><a href="#problemas">Problemas</a></li>
           <li><a href="#modelos3d">Modelos 3D</a></li>
           <li><a href="#agradecimentos">Créditos</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
 
   <!-- SEÇÃO HERO / IMPACTO -->
   <section id="hero" class="hero">
@@ -129,6 +131,8 @@
     </div>
   </section>
 
+
+  
   <!-- SEÇÃO LEDs E COMPRIMENTOS DE ONDA -->
   <section id="leds" class="section section-alt">
     <div class="container">
@@ -224,6 +228,255 @@
     </div>
   </section>
 
+  <!-- SEÇÃO PROBLEMAS E SOLUÇÕES -->
+  <section id="problemas" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Problemas Comuns e Soluções</h2>
+        <p>Principais dificuldades encontradas no experimento e como resolvê-las</p>
+      </div>
+      <div class="problems-container">
+        
+        <!-- Problema 1 -->
+        <div class="problem-item">
+          <div class="problem-header">
+            <div class="problem-icon">💡</div>
+            <h3>Range de brilho deslocado para mais</h3>
+          </div>
+          <div class="problem-content">
+            
+            <!-- Descrição do problema -->
+            <div class="problem-description">
+              <h4>O que é:</h4>
+              <p>Os LEDs da saída RCA não apagam totalmente mesmo quando o potenciômetro de controle está na máxima resistência, indicando que o range de brilho está deslocado para mais. O problema pode estar no <strong>Setor D</strong> (7805 ou capacitores associados) ou na <strong>fonte B</strong>, pois ambos influenciam o range da DDP e a alimentação dos LEDs.</p>
+              <p><strong>Métodos de diagnóstico:</strong></p>
+              <ul>
+                <li>Medir a tensão na saída do 7805 do Setor D isolado do sistema (Vin = 9 V) e verificar se Vout ≈ 5 V.</li>
+                <li>Verificar a tensão da fonte B antes do regulador e confirmar consistência com 9 V.</li>
+                <li>Observar se o range da DDP na célula fotoelétrica está fora de -9 a +21 V.</li>
+                <li>Inspecionar capacitores de saída do 7805 quanto a ESR elevado, capacitância insuficiente ou polaridade invertida.</li>
+              </ul>
+              <h4>Comportamento do range da DDP:</h4>
+              <pre>
+        ΔB = perturbação em B₀
+
+        A + B₀ + ΔB  -> valor máximo do range da DDP  
+        C            -> valor mínimo do range da DDP
+
+        Notas de diagnóstico:
+
+        - Se a fonte B estiver com problema, o range da DDP se desloca; isso afeta a célula fotoelétrica e os LEDs. 
+        - O Setor D utiliza B como entrada e gera a saída RCA de 5 V para os LEDs.  
+          Portanto, se a saída da DDP estiver fora do range esperado (-9 a +21 V) e os LEDs estiverem estranhos, o problema provavelmente vem da fonte B.
+        - A medição do range da DDP pode ser feita na saída da DDP antes do Setor D.
+        - Problemas na tensão de B (Vin muito baixo ou muito alto) podem causar:
+
+            Vin < 7 V  
+              -> saída do Setor D < 5 V, LEDs podem apagar ou range deslocado para baixo  
+              -> valor máximo da DDP menor que +21 V
+
+            Vin ≈ 7–9 V  
+              -> saída do Setor D ≈ 5 V, LEDs comportam-se corretamente  
+              -> se Vin não for exatamente 9 V, valor máximo da DDP menor que +21 V, indicando problema iminente na fonte B
+
+            Vin > 9 V  
+              -> se o Setor D estiver degradado ou capacitores ruins, saída > 5 V  
+              -> LEDs muito acesos, range deslocado para mais  
+              -> range da DDP da célula fotoelétrica maior que o esperado, indicando tensão acima do valor seguro para o 7805
+              </pre>
+            </div>
+
+            <!-- Possíveis causas -->
+            <div class="problem-causes">
+              <h4>Possíveis Causas:</h4>
+              <ul>
+                <li>Regulador 7805 do Setor D degradado ou com fim de vida útil</li>
+                <li>Capacitores de saída do 7805 defeituosos ou com ESR alto</li>
+                <li>Fonte B fornecendo tensão maior ou menor que o esperado</li>
+              </ul>
+            </div>
+
+            <!-- Soluções -->
+            <div class="problem-solutions">
+              <h4>Como Resolver:</h4>
+              <ul>
+                <li>Substituir o regulador 7805 por um novo e funcional</li>
+                <li>Testar ou substituir capacitores de saída do 7805</li>
+                <li>Verificar a tensão da fonte B e garantir que esteja estável em 9 V</li>
+                <li>Medir a saída RCA dos LEDs com potenciômetro na máxima resistência</li>
+                <li>Testar o Setor D isolado aplicando Vin = 9 V e verificar se Vout ≈ 5 V</li>
+                <li>Remover o Setor D e observar se o range da DDP retorna ao intervalo esperado</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Problema 2 -->
+        <div class="problem-item">
+          <div class="problem-header">
+            <div class="problem-icon">📉</div>
+            <h3>Leds que não acendem  e Range da DDP deslocado para (-16, 14 V)</h3>
+          </div>
+          <div class="problem-content">
+            
+            <!-- Descrição do problema -->
+            <div class="problem-description">
+              <h4>O que é:</h4>
+              <p>O range da DDP regulável da célula fotoelétrica sofreu um deslocamento significativo, passando do esperado (-9, 9, 12 V) para (-16, 14 V). Como consequência, a saída do Setor D cai para aproximadamente 0 V nos plugs RCA dos LEDs, impedindo que eles acendam corretamente.</p>
+              <p>Notas de diagnóstico:</p>
+              <pre>
+        Range esperado:
+        C = -9 V
+        B = 9 V
+        A = 12 V
+
+        Range observado:
+        C_obs = -16 V
+        B_obs = 2 V
+        A_obs = 5 V
+
+        Δx = -7 V (deslocamento uniforme do range)
+
+        Explicação:
+        O deslocamento do range provoca:
+        - Saída do Setor D ≈ 0 V
+        - LEDs não acendem
+        - Medição da DDP na célula fotoelétrica mostra valores fora do intervalo esperado
+              </pre>
+            </div>
+
+            <!-- Possíveis causas -->
+            <div class="problem-causes">
+              <h4>Possíveis Causas:</h4>
+              <ul>
+                <li>Fonte B fornecendo tensão insuficiente ou instável</li>
+                <li>Regulador 7805 do Setor D degradado ou em fim de vida</li>
+                <li>Capacitores de saída insuficientes ou defeituosos</li>
+                <li>Interação com o nó artificial alterando a referência do potenciômetro</li>
+              </ul>
+            </div>
+
+            <!-- Soluções -->
+            <div class="problem-solutions">
+              <h4>Como Resolver:</h4>
+              <ul>
+                <li>Remover o Setor D e testar isoladamente com Vin = 9 V, verificar saída de 5 V</li>
+                <li>Verificar tensão da fonte B e garantir valor correto</li>
+                <li>Substituir regulador 7805 se degradado</li>
+                <li>Testar ou substituir capacitores de saída</li>
+                <li>Evitar curtos entre a saída do potenciômetro e o nó artificial</li>
+                <li>Medir o range da DDP na célula fotoelétrica para confirmar estabilidade</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <!-- Problema 3 -->
+        <div class="problem-item">
+          <div class="problem-header">
+            <div class="problem-icon">🌡️</div>
+            <h3>Aquecimento Excessivo dos LEDs</h3>
+          </div>
+          <div class="problem-content">
+            <div class="problem-description">
+              <h4>O que é:</h4>
+              <p>Os LEDs aquecem muito durante o experimento, podendo alterar suas características espectrais e causar instabilidade nas medições.</p>
+            </div>
+            <div class="problem-causes">
+              <h4>Possíveis Causas:</h4>
+              <ul>
+                <li>Corrente de alimentação muito alta</li>
+                <li>Dissipação térmica inadequada</li>
+                <li>Tempo de operação prolongado</li>
+                <li>Ambiente com temperatura elevada</li>
+              </ul>
+            </div>
+            <div class="problem-solutions">
+              <h4>Como Resolver:</h4>
+              <ul>
+                <li>Instalar dissipadores de calor nos LEDs</li>
+                <li>Usar controle PWM para reduzir potência média</li>
+                <li>Fazer medições em intervalos com pausas</li>
+                <li>Melhorar ventilação do ambiente experimental</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problema 4 -->
+        <div class="problem-item">
+          <div class="problem-header">
+            <div class="problem-icon">📊</div>
+            <h3>Dados Inconsistentes</h3>
+          </div>
+          <div class="problem-content">
+            <div class="problem-description">
+              <h4>O que é:</h4>
+              <p>Os resultados obtidos não seguem a teoria esperada ou apresentam grande variação entre medições consecutivas.</p>
+            </div>
+            <div class="problem-causes">
+              <h4>Possíveis Causas:</h4>
+              <ul>
+                <li>Luz ambiente interferindo</li>
+                <li>Vibrações no setup experimental</li>
+                <li>Temperatura variável</li>
+                <li>Calibração inadequada dos instrumentos</li>
+              </ul>
+            </div>
+            <div class="problem-solutions">
+              <h4>Como Resolver:</h4>
+              <ul>
+                <li>Realizar experimento em ambiente escuro</li>
+                <li>Fixar bem todos os componentes</li>
+                <li>Aguardar estabilização térmica</li>
+                <li>Recalibrar instrumentos antes de cada medição</li>
+                <li>Fazer múltiplas medições e calcular médias</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problema 5 -->
+        <div class="problem-item">
+          <div class="problem-header">
+            <div class="problem-icon">⚡</div>
+            <h3>Ruído Elétrico</h3>
+          </div>
+          <div class="problem-content">
+            <div class="problem-description">
+              <h4>O que é:</h4>
+              <p>Interferências elétricas que mascaram o sinal fotoelétrico, causando flutuações indesejadas nas medições.</p>
+            </div>
+            <div class="problem-causes">
+              <h4>Possíveis Causas:</h4>
+              <ul>
+                <li>Fontes de alimentação com ripple alto</li>
+                <li>Cabos longos ou mal blindados</li>
+                <li>Equipamentos eletrônicos próximos</li>
+                <li>Aterramento inadequado</li>
+              </ul>
+            </div>
+            <div class="problem-solutions">
+              <h4>Como Resolver:</h4>
+              <ul>
+                <li>Usar fontes estabilizadas e filtradas</li>
+                <li>Empregar cabos blindados e curtos</li>
+                <li>Afastar equipamentos que geram interferência</li>
+                <li>Implementar aterramento adequado</li>
+                <li>Usar filtros passa-baixa no sinal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>  
+
   <!-- SEÇÃO MODELOS 3D -->
   <section id="modelos3d" class="section">
     <div class="container">
@@ -243,6 +496,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- SEÇÃO AGRADECIMENTOS -->
   <section id="agradecimentos" class="section section-alt">
@@ -286,6 +540,7 @@
           <a href="#hero">Início</a>
           <a href="#aparato">Aparato</a>
           <a href="#leds">LEDs</a>
+          <a href="#problemas">Problemas</a>
           <a href="#agradecimentos">Créditos</a>
         </div>
       </div>
